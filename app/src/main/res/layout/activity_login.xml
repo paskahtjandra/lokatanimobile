@@ -82,13 +82,13 @@
         >
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/username"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
             android:background="@drawable/input"
-            android:hint="Email"
+            android:hint="Username"
             android:inputType="textEmailAddress"
             android:paddingLeft="30dp"
             android:textColor="@color/black"
@@ -102,7 +102,7 @@
             android:layout_gravity="center"
             android:background="@drawable/input"
             android:hint="Password"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />

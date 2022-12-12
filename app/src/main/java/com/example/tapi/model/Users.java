@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Users {
     @SerializedName("id")
-    private String id;
+    private Integer id;
 
     @SerializedName("nickname")
     private String nickname;
@@ -12,17 +12,47 @@ public class Users {
     @SerializedName("email")
     private String email;
 
+    @SerializedName("region")
     private String region;
 
+    @SerializedName("username")
     private String username;
 
+    @SerializedName("password")
     private String password;
 
+    @SerializedName("confirmPassword")
+    private String confirmPassword;
+
+    @SerializedName("status")
     private String status;
 
+    @SerializedName("error")
+    private String error;
 
+    @SerializedName("token")
+    private String token;
 
-    public String getId() {
+    public String geterror() {
+        return error;
+    }
+
+    public Users(String nickname, String email, String region, String username, String password, String confirmPassword, String status) {
+        this.nickname = nickname;
+        this.email = email;
+        this.region = region;
+        this.username = username;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.status = status;
+    }
+
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Integer getId() {
         return id;
     }
 
@@ -49,4 +79,6 @@ public class Users {
     public String getStatus() {
         return status;
     }
+
+    public String getToken() {return token;}
 }
