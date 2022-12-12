@@ -25,6 +25,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private TextView buttonregister;
     private EditText username, password;
     private ProgressBar progressBar;
+    Users user = new Users();
+    public static String token = "a";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_login:
                 login();
-                startActivity(new Intent(this, Beranda.class));
                 break;
         }
         switch (v.getId()) {
@@ -67,9 +68,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         call.enqueue(new Callback<Users>() {
             @Override
             public void onResponse(Call<Users> call, Response<Users> response) {
-                if (response.body().getToken()!=null){
+                if (response.isSuccessful()){
                     progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+//                    user.setToken(response.body().getToken());
+                    token = response.body().getToken();
+                    startActivity(new Intent(Login.this, Beranda.class));
                 }else{
                     progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(Login.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();

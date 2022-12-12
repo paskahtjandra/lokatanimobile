@@ -2,6 +2,8 @@ package com.example.tapi.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.StringTokenizer;
+
 public class Users {
     @SerializedName("id")
     private Integer id;
@@ -36,6 +38,8 @@ public class Users {
     public String geterror() {
         return error;
     }
+
+    public Users(){};
 
     public Users(String nickname, String email, String region, String username, String password, String confirmPassword, String status) {
         this.nickname = nickname;
@@ -80,5 +84,7 @@ public class Users {
         return status;
     }
 
-    public String getToken() {return token;}
+    public String getToken() { return token; }
+
+    public void setToken(String token) {this.token = token; }
 }

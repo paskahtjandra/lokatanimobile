@@ -2,6 +2,7 @@ package com.example.tapi.api;
 
 import com.example.tapi.model.Users;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -16,5 +17,5 @@ public interface ApiService {
     Call<Users> userLogin(@Body Users user);
 
     @GET("user/")
-    Call<Users> getName(@Header("Authorization") String authToken);
+    Call<Users> getName(@Header("Authorization") String token);
 }

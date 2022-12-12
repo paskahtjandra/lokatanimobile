@@ -48,7 +48,6 @@ public class register extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_register:
-                startActivity(new Intent(this, Beranda.class));
                 createUser();
                 break;
         }
@@ -73,6 +72,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
                if (response.body()!=null){
                    progressBar.setVisibility(View.INVISIBLE);
                    Toast.makeText(register.this, "Account Created", Toast.LENGTH_SHORT).show();
+                   startActivity(new Intent(register.this, Login.class));
                }else{
                    progressBar.setVisibility(View.INVISIBLE);
                    Toast.makeText(register.this, response.body().geterror(), Toast.LENGTH_SHORT).show();
