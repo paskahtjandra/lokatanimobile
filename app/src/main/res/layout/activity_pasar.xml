@@ -105,6 +105,11 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviews"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            />
     </LinearLayout>
 
     <ImageView
@@ -120,7 +125,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:src="@drawable/bulat"
-        android:layout_marginRight="75dp"
+        android:layout_marginRight="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -168,6 +173,8 @@
             />
 
     </LinearLayout>
+
+
 
     <ProgressBar
         android:id="@+id/progressbar"

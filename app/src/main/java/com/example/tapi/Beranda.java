@@ -1,7 +1,7 @@
 package com.example.tapi;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -31,7 +31,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
     private static String token;
     RecyclerView recyclerView;
     ProgressBar progressBar;
-    LinearLayoutManager layoutManager;
+    GridLayoutManager layoutManager;
     ProduksAdapter adapter;
     List<Produks> produksList = new ArrayList<>();
 
@@ -49,7 +49,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
         //creating recyclerview
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ProduksAdapter(produksList);
         recyclerView.setAdapter(adapter);
