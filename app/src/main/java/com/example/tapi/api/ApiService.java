@@ -1,6 +1,9 @@
 package com.example.tapi.api;
 
+import com.example.tapi.model.Produks;
 import com.example.tapi.model.Users;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -18,4 +21,7 @@ public interface ApiService {
 
     @GET("user/")
     Call<Users> getName(@Header("Authorization") String token);
+
+    @GET("produk/productlist")
+    Call<List<Produks>> getProduks();
 }
