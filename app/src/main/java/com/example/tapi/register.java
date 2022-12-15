@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
         username = (EditText) findViewById(R.id.username);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
+        cfpassword = (EditText) findViewById(R.id.cfpassword);
 
         buttonlogin = (TextView) findViewById(R.id.login);
         buttonlogin.setOnClickListener(this);
@@ -59,6 +61,49 @@ public class register extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void createUser(){
+
+        String fullnames = fullname.getText().toString().trim();
+        String usernames = username.getText().toString().trim();
+        String emails = email.getText().toString().trim();
+        String passwords = password.getText().toString().trim();
+        String cfpasswords = cfpassword.getText().toString().trim();
+
+        if(fullnames.isEmpty()){
+            fullname.setError("Name is Required!");
+            fullname.requestFocus();
+            return;
+        }
+
+        if(usernames.isEmpty()){
+            username.setError("Name is Required!");
+            username.requestFocus();
+            return;
+        }
+
+        if(emails.isEmpty()){
+            email.setError("Email is Required!");
+            email.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(emails).matches()){
+            email.setError("Your Email is not Valid!");
+            email.requestFocus();
+            return;
+        }
+
+        if(passwords.isEmpty()){
+            password.setError("Password is Required!");
+            password.requestFocus();
+            return;
+        }
+
+        if(password.length()<6){
+            password.setError("Password Must Be 6 Characters Long!");
+            password.requestFocus();
+            return;
+        }
+
         progressBar.setVisibility(View.VISIBLE);
 
         ApiService ApiService = ApiConfig.getRetrofit().create(ApiService.class);

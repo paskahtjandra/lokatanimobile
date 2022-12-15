@@ -59,6 +59,28 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void login(){
+
+        String usernames = username.getText().toString().trim();
+        String passwords = password.getText().toString().trim();
+
+        if(usernames.isEmpty()){
+            username.setError("Name is Required!");
+            username.requestFocus();
+            return;
+        }
+
+        if(passwords.isEmpty()){
+            password.setError("Password is Required!");
+            password.requestFocus();
+            return;
+        }
+
+        if(password.length()<6){
+            password.setError("Password Must Be 6 Characters Long!");
+            password.requestFocus();
+            return;
+        }
+
         progressBar.setVisibility(View.VISIBLE);
 
         ApiService ApiService = ApiConfig.getRetrofit().create(ApiService.class);
